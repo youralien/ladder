@@ -9,6 +9,7 @@ from collections import OrderedDict
 import sys
 
 import numpy
+from pandas import DataFrame
 import time
 import theano
 from theano.tensor.type import TensorType
@@ -494,7 +495,7 @@ def train(cli_params):
     main_loop.run()
 
     # Get results
-    df = main_loop.log.to_dataframe()
+    df = DataFrame.from_dict(main_loop.log, orient='index')
     col = 'valid_final_error_rate_clean'
     logger.info('%s %g' % (col, df[col].iloc[-1]))
 

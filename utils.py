@@ -132,7 +132,7 @@ class SaveLog(SimpleExtension):
         self.show = show if show is not None else []
 
     def do(self, which_callback, *args):
-        df = self.main_loop.log.to_dataframe()
+        df = DataFrame.from_dict(self.main_loop.log, orient='index')
         df.to_hdf(os.path.join(self.dir, 'log'), 'log', mode='w',
                   complevel=5, complib='blosc')
 
