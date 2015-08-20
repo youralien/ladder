@@ -562,7 +562,7 @@ if __name__ == "__main__":
         a("--dataset", type=str, default=default(['mnist']), nargs='+',
           choices=['mnist', 'cifar10', 'reddit'], help="Which dataset to use")
         a("--lr", help="Initial learning rate",
-          type=float, default=default([0.002]), nargs='+')
+          type=float, default=default([0.0002]), nargs='+')
         a("--lrate-decay", help="When to linearly start decaying lrate (0-1)",
           type=float, default=default([0.67]), nargs='+')
         a("--batch-size", help="Minibatch size",
